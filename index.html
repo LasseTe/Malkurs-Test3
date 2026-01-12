@@ -1,0 +1,226 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Malkurs — Philosophisches Atelier</title>
+  <meta name="description" content="Kreativer Malkurs mit tagesweisen philosophischen Weisheiten über Kunst. Termine buchen mit Calendly." />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0f0f12;--card:#111214;--accent:#f29c6e;--muted:#bfc4c9;--glass:rgba(255,255,255,0.04)}
+    *{box-sizing:border-box}
+    body{margin:0;font-family:'Inter',system-ui,Segoe UI,Roboto,Arial;background:radial-gradient(1200px 600px at 10% 10%, #16202b 0%, transparent 20%), radial-gradient(900px 400px at 90% 90%, #1b1022 0%, transparent 18%),var(--bg);color:#e9eef2;line-height:1.45}
+    header{padding:3.5rem 1.25rem 2rem;display:flex;gap:2rem;align-items:center;justify-content:space-between}
+    .brand{display:flex;gap:1rem;align-items:center}
+    .logo{width:68px;height:68px;border-radius:12px;background:linear-gradient(135deg,#ffecd2 0%,#f29c6e 100%);display:grid;place-items:center;color:#111;font-weight:700;font-family:'Playfair Display';font-size:22px}
+    h1{font-family:'Playfair Display',serif;margin:0;font-size:1.6rem}
+    .sub{color:var(--muted);font-size:0.95rem}
+
+    main{display:grid;grid-template-columns:1fr 420px;gap:2rem;padding:0 1.25rem 3rem}
+    .hero{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:2rem;border-radius:14px;box-shadow:0 6px 30px rgba(0,0,0,0.6);min-height:420px}
+    .intro{display:flex;gap:1.5rem}
+    .card{background:var(--card);padding:1.25rem;border-radius:12px;flex:1}
+    .lead{font-size:1rem;color:#dfe7eb;margin-bottom:0.6rem}
+    .cta{display:inline-block;margin-top:1rem;padding:0.7rem 1rem;background:linear-gradient(90deg,var(--accent),#f7c9a6);color:#111;border-radius:10px;text-decoration:none;font-weight:600}
+
+    .quote-wrap{margin-top:1.25rem;display:flex;gap:1rem;align-items:flex-start}
+    .quote{flex:1;padding:1rem;border-radius:10px;background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);border:1px solid rgba(255,255,255,0.03);font-style:italic}
+    .quote small{display:block;margin-top:0.65rem;font-style:normal;color:var(--muted);font-size:0.9rem}
+
+    aside{padding-top:1rem}
+    .booking{position:sticky;top:96px}
+    .widget-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),transparent);padding:1rem;border-radius:12px;border:1px solid rgba(255,255,255,0.03)}
+    .meta{display:flex;gap:0.6rem;align-items:center;color:var(--muted);font-size:0.95rem;margin-bottom:0.6rem}
+
+    footer{padding:2rem 1.25rem;border-top:1px solid rgba(255,255,255,0.02);color:var(--muted);font-size:0.9rem}
+
+    /* responsive */
+    @media (max-width:980px){main{grid-template-columns:1fr;}.booking{position:relative;top:auto}header{flex-direction:column;align-items:flex-start;gap:1rem}}
+
+    /* small flourish */
+    .paint-swatch{display:inline-block;width:34px;height:34px;border-radius:7px;margin-right:0.5rem;box-shadow:0 6px 18px rgba(0,0,0,0.5);background:linear-gradient(135deg,#ffecd2,#f29c6e)}
+    .badge{display:inline-block;background:var(--glass);padding:6px 10px;border-radius:999px;color:var(--muted);font-size:0.85rem}
+
+    /* subtle animation for quote */
+    .quote{transform-origin:left top;transition:transform .6s cubic-bezier(.22,.9,.3,1),opacity .6s;}
+    .quote.hide{opacity:0;transform:translateY(8px) scale(.99)}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="brand">
+      <div class="logo">M</div>
+      <div>
+        <h1>Malkurs — Philosophisches Atelier</h1>
+        <div class="sub">Kreatives Malen, inspiriert von täglich wechselnden Weisheiten zur Kunst</div>
+      </div>
+    </div>
+    <div style="text-align:right">
+      <div class="badge">Nächster Kurs: Mittwoch, 18:00</div>
+      <div style="margin-top:8px"><a class="cta" href="#booking">Jetzt Termin buchen</a></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="intro">
+        <div class="card">
+          <div class="lead">Tauche ein in eine Welt aus Farbe, Form und Gedanken. In kleinen Gruppen erkunden wir Maltechniken und reflektieren anhand philosophischer Impulse über Kunst.</div>
+          <div style="display:flex;gap:0.8rem;margin-top:1rem;flex-wrap:wrap">
+            <div class="paint-swatch"></div>
+            <div class="paint-swatch" style="background:linear-gradient(135deg,#b6e3ff,#6fb1ff)"></div>
+            <div class="paint-swatch" style="background:linear-gradient(135deg,#c6ffd8,#6ee7b7)"></div>
+          </div>
+
+          <div class="quote-wrap">
+            <div id="quote" class="quote">Lade Weisheit...</div>
+            <div style="min-width:140px;text-align:center">
+              <div style="font-size:0.85rem;color:var(--muted)" id="today">--</div>
+              <div style="margin-top:0.6rem"><a class="cta" href="#booking">Buchen</a></div>
+            </div>
+          </div>
+
+          <div style="margin-top:1.25rem;color:var(--muted);font-size:0.95rem">Jedes Treffen steht unter einer inspirierenden Leitfrage — kombinieren Sie Praxis mit kurzer philosophischer Betrachtung.</div>
+        </div>
+
+        <div class="card" style="max-width:340px">
+          <h3 style="margin:0 0 0.6rem 0;font-family:'Playfair Display',serif">Kursdetails</h3>
+          <div style="color:var(--muted);font-size:0.95rem">Kursdauer: 2 Stunden<br>Materialien: Bringen Sie gerne mit oder nutzen Sie unsere Vorräte.<br>Level: Anfänger & Fortgeschrittene</div>
+          <ul style="margin-top:0.9rem;color:var(--muted);padding-left:1.1rem">
+            <li>Max. 10 Teilnehmer</li>
+            <li>Materialberatung inklusive</li>
+            <li>Pause mit Tee & Austausch</li>
+          </ul>
+        </div>
+      </div>
+
+    </section>
+
+    <aside>
+      <div id="booking" class="booking">
+        <div class="widget-card">
+          <div class="meta"><strong style="color:#fff">Termine buchen</strong><span style="flex:1"></span><span class="sub">via Calendly</span></div>
+
+          <!-- Calendly Inline-Widget Beginn -->
+          <div class="calendly-inline-widget" data-url="https://calendly.com/lasse-teunis/neues-meeting" style="min-width:320px;height:700px;"></div>
+          <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          <!-- Calendly Inline-Widget Ende -->
+
+        </div>
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">
+      <div>© <strong>Philosophisches Atelier</strong> — Malkurs • Impressum & AGB</div>
+      <div style="color:var(--muted)">Kontakt: <a href="mailto:kontakt@example.com" style="color:inherit;text-decoration:underline">kontakt@example.com</a></div>
+    </div>
+  </footer>
+
+  <script>
+    (function(){
+      const quotes = [
+        {t: "Kunst ist nicht, was man sieht, sondern was man andere sehen lässt.", a: "— Edgar Degas"},
+        {t: "Das Bild ist kein Fenster in die Welt, sondern ein Gefäß voller Möglichkeiten.", a: "— frei nach Paul Klee"},
+        {t: "Malen heißt: Ordnung aus Chaos ziehen; und im Prozess erkennt man sich selbst.", a: "— Anke Teunis"},
+        {t: "Farben sind die Tasten, mit denen die Seele spielt.", a: "— frei nach Wassily Kandinsky"},
+        {t: "Die größte Kunst besteht darin, das Unsichtbare sichtbar zu machen.", a: "— Rainer Maria Rilke"},
+        {t: "Ein Bild ist ein Gedanke, der Farbe angenommen hat.", a: "— unbekannt"},
+        {t: "Kunst lehrt uns die Geduld des Sehens.", a: "— frei nach Simone Weil"},
+        {t: "Der Maler formt Zeit und Erinnerung in Schichten von Pigment.", a: "— frei nach Gerhard Richter"},
+        {t: "Wer malt, fragt die Welt, und die Welt antwortet ihm in Farbe.", a: "— unbekannt"},
+        {t: "Kunst ist das stille Gespräch zwischen Hand, Herz und Augen.", a: "— frei nach Henri Matisse"},
+        {t: "In jedem Strich liegt die Entscheidung, etwas zu wagen.", a: "— unbekannt"},
+        {t: "Ästhetik ist die Kunst, das Gewöhnliche unwiderstehlich erscheinen zu lassen.", a: "— frei nach Oscar Wilde"},
+        {t: "Malen ist Denken mit der Hand.", a: "— frei nach Michelangelo"},
+        {t: "Kreativität ist die Freiheit, Fehler zu machen; Kunst ist die Kunst, sie zu lieben.", a: "— frei nach Scott Adams"},
+        {t: "Jedes Bild ist eine Landkarte der Erinnerungen.", a: "— unbekannt"},
+        {t: "Kunst beginnt dort, wo Gewohnheit endet.", a: "— unbekannt"},
+        {t: "Das Bild belohnt den, der hinsieht, nicht den, der nur glaubt zu sehen.", a: "— unbekannt"},
+        {t: "Form ist die stille Sprache der Erfahrung.", a: "— unbekannt"},
+        {t: "Ein Künstler übersetzt Stille in Farbe.", a: "— unbekannt"},
+        {t: "Die Leinwand verzeiht, aber sie vergisst nicht.", a: "— unbekannt"},
+        {t: "Kunst ist die Übersetzung des Inneren in sichtbare Zeichen.", a: "— unbekannt"},
+        {t: "Malerei ist Forschung ohne Labor, Versuch und Irrtum in Echtzeit.", a: "— unbekannt"},
+        {t: "Ein Pinselstrich ist eine kleine Ja zur Welt.", a: "— unbekannt"},
+        {t: "Kunst ist eine Einladung, die Welt neu zu sehen.", a: "— unbekannt"},
+        {t: "Schönheit ist das Echo der Wahrheit im Kunstwerk.", a: "— unbekannt"},
+        {t: "Kunst verlangsamt die Zeit: im Blick wird sie dichter.", a: "— unbekannt"},
+        {t: "Das Bild fragt nicht nach Antworten, es lädt zum Fragen ein.", a: "— unbekannt"},
+        {t: "Farben erinnern besser als Worte.", a: "— unbekannt"},
+        {t: "Die Komposition ist die stille Logik eines Bildes.", a: "— unbekannt"},
+        {t: "Malerei ist die Suche nach dem richtigen Zweifel.", a: "— unbekannt"},
+        {t: "Kunst hat keine Funktion außer der, zu berühren.", a: "— unbekannt"},
+        {t: "Ein Künstler beobachtet, als wäre er zum ersten Mal geboren.", a: "— unbekannt"},
+        {t: "Die Hand des Künstlers ist die Stimme seiner Gedanken.", a: "— unbekannt"},
+        {t: "In der Kunst wird das Unausgesprochene sichtbar.", a: "— unbekannt"},
+        {t: "Kunst ist die Praxis des Widerspruchs: Ordnung und Überraschung.", a: "— unbekannt"},
+        {t: "Die schönste Farbe ist die, die eine Erinnerung trägt.", a: "— unbekannt"},
+        {t: "Malen ist ein Dialog zwischen Zufall und Entscheidung.", a: "— unbekannt"},
+        {t: "Ein Bild ist eine Einladung, länger zu bleiben.", a: "— unbekannt"},
+        {t: "Kunst erkennt die Welt nicht, sie erfindet sie.", a: "— unbekannt"},
+        {t: "Der Prozess ist wichtiger als das Ergebnis.", a: "— unbekannt"},
+        {t: "Kunst ist mutige Langsamkeit in lauter Zeit.", a: "— unbekannt"},
+        {t: "Die Analyse eines Bildes ist wie das Entschlüsseln eines vertrauten Gesichts.", a: "— unbekannt"},
+        {t: "Farben sind Gedanken, die keine Worte finden.", a: "— unbekannt"},
+        {t: "Die beste Lehrerin ist die Stille vor einer leeren Leinwand.", a: "— unbekannt"},
+        {t: "Kunst ist eine Einladung, sich selbst neu zu begegnen.", a: "— unbekannt"},
+        {t: "Ein gutes Bild erinnert an einen Traum.", a: "— unbekannt"},
+        {t: "Der Wert eines Bildes liegt in seiner Fähigkeit, Fragen zu stellen.", a: "— unbekannt"},
+        {t: "Malen ist die Kunst, den inneren Raum zu ordnen.", a: "— unbekannt"},
+        {t: "Kunst ist der Mut, das Eigene zu zeigen.", a: "— unbekannt"},
+        {t: "Das Skizzieren ist die Fähigkeit, Unwichtiges wegzulassen.", a: "— unbekannt"},
+        {t: "Künstlerische Freiheit ist die Übung, Regeln zu brechen mit Respekt.", a: "— unbekannt"},
+        {t: "In der Farbe finden wir die Wärme des Gedächtnisses.", a: "— unbekannt"},
+        {t: "Ein Pinsel behauptet nichts — er schlägt vor.", a: "— unbekannt"},
+        {t: "Kunst ist kein Spiegel, sondern ein Fenster mit anderer Aussicht.", a: "— unbekannt"},
+        {t: "Die Arbeit am Bild ist eine Form des Denkens.", a: "— unbekannt"},
+        {t: "Kunst zeigt, wie sehbar das Unsichtbare sein kann.", a: "— unbekannt"},
+        {t: "Die beste Technik ist die, die die Absicht stärkt.", a: "— unbekannt"},
+        {t: "Ein Atelier ist ein Ort, an dem Fragen Farbe bekommen.", a: "— unbekannt"},
+        {t: "Kunst ist ein ständiges Kommen und Gehen von Ideen.", a: "— unbekannt"},
+        {t: "Malerei ist die Übung, sich dem Unfertigen zu nähern.", a: "— unbekannt"},
+        {t: "Zu malen heißt, Vertrauen in den Zufall zu setzen.", a: "— unbekannt"},
+        {t: "Kunst ist die souveräne Sprache des Unaussprechlichen.", a: "— unbekannt"},
+        {t: "Das Geheimnis eines Bildes liegt oft in den Schatten.", a: "— unbekannt"},
+        {t: "In der Beschränkung liegt die Freiheit der Form.", a: "— unbekannt"}
+      ];
+
+      function getIndexForToday(len){
+        // days since epoch to change daily
+        const days = Math.floor(Date.now() / 86400000);
+        return ((days % len) + len) % len;
+      }
+
+      const quoteEl = document.getElementById('quote');
+      const todayEl = document.getElementById('today');
+
+      function renderQuote(){
+        const i = getIndexForToday(quotes.length);
+        // animate
+        quoteEl.classList.add('hide');
+        setTimeout(()=>{
+          quoteEl.innerHTML = `<div>${quotes[i].t}</div><small>${quotes[i].a}</small>`;
+          quoteEl.classList.remove('hide');
+        },260);
+
+        const d = new Date();
+        const opts = {weekday:'long', year:'numeric', month:'long', day:'numeric'};
+        todayEl.textContent = d.toLocaleDateString('de-DE', opts);
+      }
+
+      renderQuote();
+
+      // refresh at midnight local time
+      (function scheduleNext(){
+        const now = new Date();
+        const tmr = new Date(now.getFullYear(),now.getMonth(),now.getDate()+1,0,0,5);
+        const ms = tmr - now;
+        setTimeout(()=>{renderQuote(); scheduleNext();}, ms);
+      })();
+
+    })();
+  </script>
+</body>
+</html>
